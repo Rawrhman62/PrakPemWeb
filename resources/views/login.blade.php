@@ -1,4 +1,11 @@
-<div>
-    <p>hi<p>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid. - Cato the Younger -->
-</div>
+<!-- Dipegang oleh Fazri -->
+<form method="POST" action="/login">
+    @csrf
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
+@if(session('error'))
+    <p style="color:red">{{ session('error') }}</p>
+@endif
