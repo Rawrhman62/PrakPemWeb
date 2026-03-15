@@ -12,8 +12,8 @@ class LoginController extends Controller
 
     public function login(Request $request) {
         // Data statis untuk contoh (bisa diganti query DB) - Fazri
-        $userValid = 'admin@mail.com';
-        $passValid = 'rahasia123';
+        $userValid = 'admin@email.com';
+        $passValid = 'admin123';
 
         if ($request->email == $userValid && $request->password == $passValid) {
             // Simpan status login ke session - Fazri

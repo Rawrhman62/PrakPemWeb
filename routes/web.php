@@ -4,19 +4,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ItemController;
 
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'showForm']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
-
-Route::get('/dashboard', function() {                               //
-    if (!session('user_id')) {                                      //
-        return redirect('/login');                                  //  < ------ Ini diganti yang pegang Dashboard - Fazri
-    }                                                               //
-    return "Halo " . session('user_name') . ", Anda berhasil masuk!";//
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/items', [ItemController::class, 'index']);
 
 // Route::get('/', function () {
     // return view('welcome');        < ---- Ini dri praktikum, hapus aja kalo pake HomeController - Fazri
